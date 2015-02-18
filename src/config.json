@@ -1,0 +1,72 @@
+{
+	"eclipseDir" : "D:/Program Files/Eclipse Luna/",
+	"pluginDir" : "E:/Developpement/Plugin",
+	"verbose" : 1,
+	"plugins" : [
+		{
+			"name" : "SVNConnector",
+			"path" : "http://community.polarion.com/projects/subversive/download/eclipse/4.0/luna-site/",
+			"enable" : 0
+		},
+		{
+			"name" : "JbossTool",
+			"path" : "http://download.jboss.org/jbosstools/updates/stable/luna/",
+			"enable" : 0
+		},
+		{
+			"name" : "Checkstyle",
+			"path" : "http://eclipse-cs.sourceforge.net/update/",
+			"enable" : 0
+		},
+		{
+			"name" : "Subclipse",
+			"path" : "http://subclipse.tigris.org/update_1.10.x",
+			"enable" : 0
+		},
+		{
+			"name" : "DBeaver",
+			"path" : "http://dbeaver.jkiss.org/update/2.3/",
+			"enable" : 0
+		},
+		{
+			"name" : "Toad",
+			"path" : "http://community-downloads.quest.com/toadsoft/toadextensions/eclipse/freeware/",
+			"enable" : 0
+		},
+		{
+			"name" : "EclipseLuna",
+			"path" : "http://download.eclipse.org/releases/luna/",
+			"enable" : 0
+		},
+		{
+			"name" : "OracleTool",
+			"path" : "http://download.oracle.com/otn_software/oepe/luna",
+			"enable" : 0
+		},
+		{
+			"name" : "Jacoco",
+			"path" : "http://update.eclemma.org",
+			"enable" : 0
+		},
+		{
+			"name" : "Liquibase",
+			"path" : "http://liquibase-eclipse-plugin.googlecode.com/svn/trunk/com.svcdelivery.liquibase.eclipse.site",
+			"enable" : 0
+		},
+		{
+			"name" : "EclipseEMF",
+			"path" : "http://download.eclipse.org/modeling/emf/updates/releases/",
+			"enable" : 0
+		},
+		{
+			"name" : "JBossVisualEditor64Bit",
+			"path" : "http://download.jboss.org/jbosstools/updates/integration/luna/core/xulrunner/xulrunner-1.9.2_win64-2014-08-22_09-55-58-B4/",
+			"enable" : 0
+		},
+		{
+			"name" : "Cumcumber",
+			"path" : "http://cucumber.github.com/cucumber-eclipse/update-site/",
+			"enable" : 1
+		}
+	]
+}
