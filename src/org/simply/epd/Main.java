@@ -25,7 +25,7 @@ public class Main {
 		System.out.println("Starting app...");
 		//new EclipsePluginDownloader(args[0]).init();;
 		try {
-			new EclipsePluginDownloader("E:\\Developpement\\Projet\\EclipsePluginDownloader\\src\\config.json").init();
+			new EclipsePluginDownloader("/Users/ninja/Development/Project/java/EclipsePluginDownload/src/config.json").init();
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}

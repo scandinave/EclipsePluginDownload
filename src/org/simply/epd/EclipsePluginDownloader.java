@@ -81,15 +81,16 @@ public class EclipsePluginDownloader implements Serializable{
 		Set<String> pluginNames = this.conf.getPlugins().keySet();
 		String ECLIPSECPATH = this.conf.getEclipseDir();
 		for (String pluginName : pluginNames) {
+			System.out.println("Downloading plugin " + pluginName);
 			Integer fileCount;
-			String dirPath = this.conf.getPluginDir()  + "\\" + pluginName.replace(" ", "_");
+			String dirPath = this.conf.getPluginDir()  + File.separator + pluginName.replace(" ", "_");
 			checkDirExist(dirPath);
 			do {
 				fileCount = getFileCountInDir(dirPath);
 				String path = this.conf.getPlugins().get(pluginName);
-				StringBuilder command = new StringBuilder(ECLIPSECPATH + "eclipsec -nosplash -verbose -application org.eclipse.equinox.p2.metadata.repository.mirrorApplication");
+				StringBuilder command = new StringBuilder(ECLIPSECPATH + "eclipse -nosplash -verbose -application org.eclipse.equinox.p2.metadata.repository.mirrorApplication");
 				command.append(" -source " + path);
-				command.append(" -destination " + this.conf.getPluginDir()  + "\\" + pluginName);
+				command.append(" -destination " + this.conf.getPluginDir()  + File.separator + pluginName);
 				System.out.println("Command to execute : " + command.toString());
 				executCommand(command.toString());
 				executCommand(command.toString().replace("metadata", "artifact"));
