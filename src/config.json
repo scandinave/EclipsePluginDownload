@@ -66,7 +66,7 @@
 		{
 			"name" : "EclipsePhoton",
 			"path" : "http://download.eclipse.org/releases/photon/",
-			"enable" : 0
+			"enable" : 1
 		},
 		{
 			"name" : "OracleTool",

@@ -92,17 +92,17 @@ public class EclipsePluginDownloader implements Serializable{
 				command.append(" -source " + path);
 				command.append(" -destination " + this.conf.getPluginDir()  + File.separator + pluginName);
 				System.out.println("Command to execute : " + command.toString());
-				executCommand(command.toString());
-				executCommand(command.toString().replace("metadata", "artifact"));
-				System.out.println("NB Fichier avant = " + getFileCountInDir(dirPath));
-				System.out.println("NB Fichier Apres = " + fileCount);
+				executeCommand(command.toString());
+				executeCommand(command.toString().replace("metadata", "artifact"));
+				System.out.println("NB Fichier avant = " + fileCount);
+				System.out.println("NB Fichier Apres = " + getFileCountInDir(dirPath));
 				System.out.println("Condition boucle = " + (getFileCountInDir(dirPath) != fileCount));
 			} while(getFileCountInDir(dirPath) != fileCount);
 		}
 		
 	}
 	
-	private void executCommand(String command) {
+	private void executeCommand(String command) {
 		System.out.println("Executed commande");
 		Scanner sc = null;
 		try{
