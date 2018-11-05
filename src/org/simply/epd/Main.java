@@ -1,6 +1,7 @@
 package org.simply.epd;
 
 import java.io.IOException;
+
 /*
  * (C) Copyright 2015 Scandinave www.scandi.info and others.
  *
@@ -23,9 +24,10 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("Starting app...");
-		//new EclipsePluginDownloader(args[0]).init();;
+		// new EclipsePluginDownloader(args[0]).init();;
 		try {
-			new EclipsePluginDownloader("/Users/ninja/Development/Project/java/EclipsePluginDownload/src/config.json").init();
+			new EclipsePluginDownloader(
+					"/home/scandinave/Development/Project/JAVA/EclipsePluginDownload/src/config.json").init();
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
