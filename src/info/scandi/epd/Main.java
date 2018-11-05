@@ -1,6 +1,13 @@
-package org.simply.epd;
+package info.scandi.epd;
 
+import info.scandi.epd.controller.DownloadController;
+import info.scandi.epd.view.DownloadConsoleView;
+import model.DownloadModel;
+
+<<<<<<<HEAD:src/org/simply/epd/Main.java
 import java.io.IOException;
+
+=======>>>>>>>Refactor code to fit MVP:src/info/scandi/epd/Main.java
 
 /*
  * (C) Copyright 2015 Scandinave www.scandi.info and others.
@@ -25,13 +32,12 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("Starting app...");
 		// new EclipsePluginDownloader(args[0]).init();;
-		try {
-			new EclipsePluginDownloader(
-					"/home/scandinave/Development/Project/JAVA/EclipsePluginDownload/src/config.json").init();
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-		}
-		System.out.println("Terminated");
+		DownloadModel model = new DownloadModel();
+		DownloadConsoleView view = new DownloadConsoleView();
+		DownloadController controller = new DownloadController();
+		controller.setModel(model);
+		model.subscribe(view);
+//			new EclipsePluginDownloader("/Users/ninja/Development/Project/java/EclipsePluginDownload/src/config.json").init();
 	}
 
 }

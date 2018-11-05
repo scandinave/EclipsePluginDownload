@@ -1,0 +1,82 @@
+{
+	"eclipseDir" : "/Users/ninja/eclipse/java-photon/Eclipse.app/Contents/MacOS/",
+	"pluginDir" : "/Users/ninja/Development/Project/java/EclipsePlugin",
+	"verbose" : 1,
+	"plugins" : [
+		{
+			"name" : "SonarLint",
+			"path": "https://eclipse-uc.sonarlint.org",
+			"enable": 1
+		},
+		{
+			"name" : "Cucumber",
+			"path": "http://mrpotes.github.com/cukes-jvm-eclipse-plugin/update-site",
+			"enable": 1
+		},
+		{
+			"name" : "HTMLEditor",
+			"path": "http://download.eclipse.org/releases/photon/",
+			"enable": 1
+		},
+		{
+			"name" : "JbossTool",
+			"path" : "http://download.jboss.org/jbosstools/photon/stable/updates/",
+			"enable" : 1
+		},
+				{
+			"name" : "SpringTool",
+			"path" : "http://download.springsource.com/release/TOOLS/update/e4.8/",
+			"enable" : 1
+		},
+		{
+			"name" : "GWT",
+			"path" : "http://storage.googleapis.com/gwt-eclipse-plugin/v3/release",
+			"enable" : 1
+		},
+		{
+			"name" : "GWT",
+			"path" : "http://storage.googleapis.com/gwt-eclipse-plugin/v3/release",
+			"enable" : 1
+		},
+		{
+			"name" : "ScalaIDE",
+			"path" : "http://download.scala-ide.org/sdk/lithium/e47/scala212/dev/site",
+			"enable" : 1
+		},
+		{
+			"name" : "efxclipse",
+			"path" : "http://download.eclipse.org/efxclipse/updates-released/3.0.0/site",
+			"enable" : 1
+		},
+		{
+			"name" : "Checkstyle",
+			"path" : "https://checkstyle.github.io/eclipse-cs/update",
+			"enable" : 1
+		},
+		{
+			"name" : "Subclipse",
+			"path" : "https://dl.bintray.com/subclipse/releases/subclipse/4.2.x/",
+			"enable" : 1
+		},
+		{
+			"name" : "DBeaver",
+			"path" : "https://dbeaver.io/update/latest/",
+			"enable" : 1
+		},
+		{
+			"name" : "EclipsePhoton",
+			"path" : "http://download.eclipse.org/releases/photon/",
+			"enable" : 1
+		},
+		{
+			"name" : "OracleTool",
+			"path" : "http://download.oracle.com/otn_software/oepe/oxygen",
+			"enable" : 1
+		},
+		{
+			"name" : "Jacoco",
+			"path" : "http://update.eclemma.org/",
+			"enable" : 1
+		}
+	]
+}

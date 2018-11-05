@@ -1,3 +1,4 @@
-/META-INF/
-/config.json
-/org/
+/.project
+/.classpath
+/target/
+.settings
