@@ -1,13 +1,9 @@
 package info.scandi.epd;
 
-import info.scandi.epd.controller.DownloadController;
-import info.scandi.epd.view.DownloadConsoleView;
-import model.DownloadModel;
-
-<<<<<<<HEAD:src/org/simply/epd/Main.java
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
-=======>>>>>>>Refactor code to fit MVP:src/info/scandi/epd/Main.java
+import info.scandi.epd.controller.DownloadController;
 
 /*
  * (C) Copyright 2015 Scandinave www.scandi.info and others.
@@ -32,12 +28,18 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("Starting app...");
 		// new EclipsePluginDownloader(args[0]).init();;
-		DownloadModel model = new DownloadModel();
-		DownloadConsoleView view = new DownloadConsoleView();
-		DownloadController controller = new DownloadController();
-		controller.setModel(model);
-		model.subscribe(view);
-//			new EclipsePluginDownloader("/Users/ninja/Development/Project/java/EclipsePluginDownload/src/config.json").init();
+		try {
+			DownloadController controller = new DownloadController(
+					"/home/scandinave/Development/Project/JAVA/EclipsePluginDownload/src/config.json");
+			controller.downloadPlugins();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//			new EclipsePluginDownloader("/home/scandinave/Development/Project/JAVA/EclipsePluginDownload/src/config.json").init();
 	}
 
 }

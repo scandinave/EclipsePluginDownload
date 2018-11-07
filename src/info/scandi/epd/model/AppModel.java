@@ -1,7 +1,7 @@
-package model;
+package info.scandi.epd.model;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
  * (C) Copyright 2015 Scandinave www.scandi.info and others.
@@ -21,11 +21,11 @@ import java.util.Map;
  * Contributors:
  *     LE BARO Romain
  */
-public class PluginsModel implements IModel {
+public class AppModel {
 	private String eclipseDir;
 	private String pluginDir;
 	private Integer verboseMode;
-	private Map<String, String> plugins = new HashMap<String, String>();
+	private List<PluginModel> plugins = new ArrayList<PluginModel>();
 
 	public String getEclipseDir() {
 		return this.eclipseDir;
@@ -51,15 +51,15 @@ public class PluginsModel implements IModel {
 		this.verboseMode = verboseMode;
 	}
 
-	public Map<String, String> getPlugins() {
+	public List<PluginModel> getPlugins() {
 		return this.plugins;
 	}
 
-	public void setPlugins(Map<String, String> plugins) {
+	public void setPlugins(List<PluginModel> plugins) {
 		this.plugins = plugins;
 	}
 
-	public void addPlugin(String name, String path) {
-		this.plugins.put(name, path);
+	public void addPlugin(PluginModel plugin) {
+		this.plugins.add(plugin);
 	}
 }

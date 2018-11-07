@@ -6,12 +6,12 @@
 		{
 			"name" : "SonarLint",
 			"path": "https://eclipse-uc.sonarlint.org",
-			"enable": 0
+			"enable": 1
 		},
 		{
 			"name" : "Cucumber",
 			"path": "http://mrpotes.github.com/cukes-jvm-eclipse-plugin/update-site",
-			"enable": 0
+			"enable": 1
 		},
 		{
 			"name" : "JbossTool",
@@ -26,7 +26,7 @@
 		{
 			"name" : "GWT",
 			"path" : "http://storage.googleapis.com/gwt-eclipse-plugin/v3/release",
-			"enable" : 0
+			"enable" : 1
 		},
 		{
 			"name" : "ScalaIDE",

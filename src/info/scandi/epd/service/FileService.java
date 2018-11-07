@@ -12,7 +12,8 @@ import javax.json.JsonObject;
 import javax.json.JsonReader;
 import javax.json.JsonString;
 
-import model.PluginsModel;
+import info.scandi.epd.model.AppModel;
+import info.scandi.epd.model.PluginModel;
 
 public class FileService {
 
@@ -49,8 +50,8 @@ public class FileService {
 		return count;
 	}
 
-	public PluginsModel load(String filename) throws IOException, FileNotFoundException {
-		PluginsModel model = new PluginsModel();
+	public AppModel load(String filename) throws IOException, FileNotFoundException {
+		AppModel model = new AppModel();
 		try (FileInputStream fis = new FileInputStream(new File(filename)); JsonReader rdr = Json.createReader(fis)) {
 			JsonObject obj = rdr.readObject();
 			JsonString pluginDir = obj.getJsonString("pluginDir");
@@ -64,7 +65,7 @@ public class FileService {
 				if (plugin.isNull("enable") || plugin.getJsonNumber("enable").intValue() == 1) {
 					String name = plugin.getString("name");
 					String path = plugin.getString("path");
-					model.addPlugin(name, path);
+					model.addPlugin(new PluginModel(name, path));
 				}
 			}
 		}
