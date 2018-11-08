@@ -7,14 +7,17 @@ import java.util.concurrent.Executors;
 
 import info.scandi.epd.model.AppModel;
 import info.scandi.epd.service.FileService;
+import info.scandi.epd.view.IDownloadView;
 
 public class DownloadController {
 
 	private AppModel appModel = new AppModel();
 	private FileService fileService = new FileService();
+	private IDownloadView view = null;
 
-	public DownloadController(String filename) throws FileNotFoundException, IOException {
+	public DownloadController(String filename, IDownloadView view) throws FileNotFoundException, IOException {
 		this.appModel = this.fileService.load(filename);
+		this.view = view;
 	}
 
 	public void downloadPlugins() {
@@ -23,9 +26,9 @@ public class DownloadController {
 			Runnable r = () -> {
 				plugin.download(this.appModel.getPluginDir(), this.appModel.getEclipseDir(),
 						this.appModel.getVerboseMode()).subscribe(next -> {
-							System.out.println(next);
+							this.view.render(next);
 						}, error -> {
-							System.err.println(error);
+							this.view.renderError(error);
 						});
 			};
 			service.execute(r);

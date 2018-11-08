@@ -47,13 +47,14 @@ public class PluginModel {
 						+ "eclipse -nosplash -verbose -application org.eclipse.equinox.p2.metadata.repository.mirrorApplication");
 				command.append(" -source " + this.path);
 				command.append(" -destination " + pluginDir + File.separator + this.name);
-				s.onNext("Command to execute : " + command.toString());
+				// s.onNext("Command to execute : " + command.toString());
 				this.executeCommand(command.toString(), verbose);
 				this.executeCommand(command.toString().replace("metadata", "artifact"), verbose);
-				s.onNext("NB Fichier avant = " + fileCount);
-				s.onNext("NB Fichier Apres = " + this.fileService.getFileCountInDir(dirPath));
-				s.onNext("Condition boucle = " + (this.fileService.getFileCountInDir(dirPath) != fileCount));
-				s.onNext(fileCount.toString());
+//				s.onNext("NB Fichier avant = " + fileCount);
+//				s.onNext("NB Fichier Apres = " + this.fileService.getFileCountInDir(dirPath));
+				s.onNext(this.fileService.getFileCountInDir(dirPath) == fileCount
+						? "Téléchargement de " + this.name + " terminé"
+						: "");
 			} while (this.fileService.getFileCountInDir(dirPath) != fileCount);
 
 			s.onComplete();
@@ -61,7 +62,6 @@ public class PluginModel {
 	}
 
 	private void executeCommand(String command, int verbose) {
-		System.out.println("Executed commande");
 		Scanner sc = null;
 		try {
 			Process p = Runtime.getRuntime().exec(command);

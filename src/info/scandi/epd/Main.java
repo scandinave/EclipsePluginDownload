@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import info.scandi.epd.controller.DownloadController;
+import info.scandi.epd.view.DownloadConsoleView;
+import info.scandi.epd.view.IDownloadView;
 
 /*
  * (C) Copyright 2015 Scandinave www.scandi.info and others.
@@ -29,8 +31,9 @@ public class Main {
 		System.out.println("Starting app...");
 		// new EclipsePluginDownloader(args[0]).init();;
 		try {
+			IDownloadView view = new DownloadConsoleView();
 			DownloadController controller = new DownloadController(
-					"/home/scandinave/Development/Project/JAVA/EclipsePluginDownload/src/config.json");
+					"/home/scandinave/Development/Project/JAVA/EclipsePluginDownload/src/config.json", view);
 			controller.downloadPlugins();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
