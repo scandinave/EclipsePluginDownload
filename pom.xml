@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>EclipsePluginDownload</groupId>
   <artifactId>EclipsePluginDownload</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>2.0</version>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <resources>
@@ -22,6 +22,28 @@
           <target>10</target>
         </configuration>
       </plugin>
+      <plugin>
+	      	<artifactId>maven-assembly-plugin</artifactId>
+	      	<configuration>
+		        <descriptorRefs>
+		          <descriptorRef>jar-with-dependencies</descriptorRef>
+		        </descriptorRefs>
+		        <archive>
+		          <manifest>
+		            <mainClass>info.scandi.epd.Main</mainClass>
+		          </manifest>
+		        </archive>
+	      	</configuration>
+		    <executions>
+			    <execution>
+			      <id>make-assembly</id> <!-- this is used for inheritance merges -->
+			      <phase>package</phase> <!-- bind to the packaging phase -->
+			      <goals>
+			        <goal>single</goal>
+			      </goals>
+			    </execution>
+		  	</executions>
+	    </plugin>
     </plugins>
   </build>
   <dependencies>
