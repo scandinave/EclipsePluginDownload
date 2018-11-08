@@ -29,20 +29,15 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("Starting app...");
-		// new EclipsePluginDownloader(args[0]).init();;
 		try {
 			IDownloadView view = new DownloadConsoleView();
-			DownloadController controller = new DownloadController(
-					"/home/scandinave/Development/Project/JAVA/EclipsePluginDownload/src/config.json", view);
+			DownloadController controller = new DownloadController(args[0], view);
 			controller.downloadPlugins();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (FileNotFoundException | ArrayIndexOutOfBoundsException e) {
+			System.err.println("You must provide a config.json file path as a parameter");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println(e.getMessage());
 		}
-//			new EclipsePluginDownloader("/home/scandinave/Development/Project/JAVA/EclipsePluginDownload/src/config.json").init();
 	}
 
 }

@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import info.scandi.epd.service.FileService;
 import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
 
 public class PluginModel {
 
@@ -43,15 +44,12 @@ public class PluginModel {
 			this.fileService.createDir(dirPath);
 			do {
 				fileCount = this.fileService.getFileCountInDir(dirPath);
-				StringBuilder command = new StringBuilder(eclipsePath
+				StringBuilder command = new StringBuilder(eclipsePath + File.separator
 						+ "eclipse -nosplash -verbose -application org.eclipse.equinox.p2.metadata.repository.mirrorApplication");
 				command.append(" -source " + this.path);
 				command.append(" -destination " + pluginDir + File.separator + this.name);
-				// s.onNext("Command to execute : " + command.toString());
-				this.executeCommand(command.toString(), verbose);
-				this.executeCommand(command.toString().replace("metadata", "artifact"), verbose);
-//				s.onNext("NB Fichier avant = " + fileCount);
-//				s.onNext("NB Fichier Apres = " + this.fileService.getFileCountInDir(dirPath));
+				this.executeCommand(command.toString(), verbose, s);
+				this.executeCommand(command.toString().replace("metadata", "artifact"), verbose, s);
 				s.onNext(this.fileService.getFileCountInDir(dirPath) == fileCount
 						? "Téléchargement de " + this.name + " terminé"
 						: "");
@@ -61,14 +59,14 @@ public class PluginModel {
 		});
 	}
 
-	private void executeCommand(String command, int verbose) {
+	private void executeCommand(String command, int verbose, ObservableEmitter<String> s) {
 		Scanner sc = null;
 		try {
 			Process p = Runtime.getRuntime().exec(command);
 			if (verbose == 1) {
 				sc = new Scanner(p.getInputStream());
 				while (sc.hasNext()) {
-					System.out.println(sc.nextLine());
+					s.onNext(sc.nextLine());
 				}
 			}
 		} catch (IOException e) {
