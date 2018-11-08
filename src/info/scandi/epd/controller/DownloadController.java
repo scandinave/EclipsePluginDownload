@@ -30,5 +30,6 @@ public class DownloadController {
 			};
 			service.execute(r);
 		});
+		service.shutdown();
 	}
 }
