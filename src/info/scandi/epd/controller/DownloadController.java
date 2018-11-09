@@ -21,7 +21,7 @@ public class DownloadController {
 	}
 
 	public void downloadPlugins() {
-		ExecutorService service = Executors.newFixedThreadPool(8);
+		ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 		this.appModel.getPlugins().forEach(plugin -> {
 			Runnable r = () -> {
 				plugin.download(this.appModel.getPluginDir(), this.appModel.getEclipseDir(),
