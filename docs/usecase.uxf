@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>530</x>
+      <y>50</y>
+      <w>270</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>Plugin
+bg=yellow
+-
+- name
+- path
+- enable
+- totalSize
+- downloadedSize
+-
++ enablePlugin()
++ disablePlugin()
++ updateRepository(String path)
++ updateName(String name)
++ setTotalSize(Int nb)
++ makeDownloadProgress(Int nb)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>20</x>
+      <y>60</y>
+      <w>480</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Download Plugins
+bg=red
+--
+Input : N/A
+Output : List of plugins progress 
+----------------------------- 
+
+1. for each plugin
+2. launch download
+3. check plugins progress 
+4. report progress
+5. repeat 3-4 until all plugins are done
+
+
+valign=top</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>840</x>
+      <y>40</y>
+      <w>370</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>Register new plugin
+bg=red
+--
+Input : name, url, enable
+Output : Same info + total size
+----------------------------- 
+
+1. Accept and validateName
+2. Accept and validate url
+3. Create directory base on sanitize plugin name
+4. Get total size info from repository metadata
+
+valign=top</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>200</x>
+      <y>350</y>
+      <w>480</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Delete a plugin
+bg=red
+--
+Input : name
+Output : N/A
+----------------------------- 
+
+1. Accept and validateName
+2. If name exist, delete directory and entry
+
+
+valign=top</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>30</x>
+      <y>710</y>
+      <w>100</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Developper</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>230</x>
+      <y>600</y>
+      <w>180</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Register a new plugin</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>230</x>
+      <y>700</y>
+      <w>180</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Update a plugin</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>230</x>
+      <y>780</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Download a plugin</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>230</x>
+      <y>850</y>
+      <w>190</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Delete a plugin</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>100</x>
+      <y>610</y>
+      <w>150</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;130.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>100</x>
+      <y>710</y>
+      <w>150</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;40.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>100</x>
+      <y>750</y>
+      <w>150</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>100</x>
+      <y>760</y>
+      <w>150</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;130.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>760</x>
+      <y>350</y>
+      <w>480</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>Update plugin
+bg=red
+--
+Input : name, url, enable
+Output : Same info + total size
+----------------------------- 
+
+1. Accept and validateName
+2. if name change, Rename backing directory
+3. Update enable status
+4. if url change, get total size info from repository metadata
+
+
+valign=top</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
